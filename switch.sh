@@ -1,11 +1,16 @@
 #!/bin/bash
 if [ -z "$1" ]; then
-	echo "Usage: switch.sh <branch-name> [\"<repo>...\"]"
+	echo "Usage: switch.sh <branch-name> <root-dir> [\"<repo>...\"]"
 	echo "<branch-name> Name of branch or tag to switch to for the specified repositories."
+	echo "<root-dir>    Optional: path to the root directory where the repositories are located. If not specified, the current directory is used."
 	echo "\"<repo>\"      Optional: space delimited list of repositories to change the branch/tag for. The defaults: enyo, lib/enyo-ilib, lib/layout, lib/moonstone, lib/spotlight"
 else
-	root_dir=~/Documents/git/
 	if [ -z "$2" ]; then
+		root_dir=pwd
+	else
+		root_dir="$2"
+	fi
+	if [ -z "$3" ]; then
 		repo_names=(enyo lib/enyo-ilib lib/layout lib/moonstone lib/spotlight)
 	else
 		IFS=', ' read -a repo_names <<< $2
