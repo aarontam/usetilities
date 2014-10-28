@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 	echo "<branch-name> Name of branch to create and push for the specified repositories."
 	echo "<base-branch> Name of base branch to branch off of."
 	echo "<root-dir>    Optional: path to the root directory where the repositories are located. If not specified, the current directory is used."
-	echo "\"<repo>\"      Optional: space delimited list of repositories to create the branch for. The defaults: enyo, lib/layout, lib/moonstone, lib/spotlight, lib/enyo-webos, lib/enyo-cordova, lib/enyo-ilib, lib/onyx, lib/canvas, lib/extra, bootplate, bootplate-moonstone, sampler"
+	echo "\"<repo>\"      Optional: space delimited list of repositories to create the branch for. The defaults: enyo, lib/layout, lib/moonstone, lib/spotlight, lib/enyo-webos, lib/enyo-cordova, lib/enyo-ilib, lib/onyx, lib/canvas, lib/extra, bootplate, bootplate-moonstone, sampler, api-tool"
 else
 	if [ -z "$3" ]; then
 		root_dir=${PWD}"/"
@@ -14,7 +14,7 @@ else
 		root_dir="$3"
 	fi
 	if [ -z "$4" ]; then
-		repo_names=(enyo lib/layout lib/moonstone lib/spotlight lib/enyo-webos lib/enyo-cordova lib/enyo-ilib lib/onyx lib/canvas lib/extra bootplate bootplate-moonstone sampler)
+		repo_names=(enyo lib/layout lib/moonstone lib/spotlight lib/enyo-webos lib/enyo-cordova lib/enyo-ilib lib/onyx lib/canvas lib/extra bootplate bootplate-moonstone sampler api-tool)
 	else
 		IFS=', ' read -a repo_names <<< $4
 	fi
