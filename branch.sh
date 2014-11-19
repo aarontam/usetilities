@@ -2,7 +2,7 @@
 bold=`tput bold`
 normal=`tput sgr0`
 if [ -z "$1" ]; then
-	echo "Usage: branch.sh <branch-name> <root-dir> [\"<repo>...\"]"
+	echo "Usage: branch.sh <branch-name> <base-branch> <root-dir> [\"<repo>...\"]"
 	echo "<branch-name> Name of branch to create and push for the specified repositories."
 	echo "<base-branch> Name of base branch to branch off of."
 	echo "<root-dir>    Optional: path to the root directory where the repositories are located. If not specified, the current directory is used."
