@@ -14,7 +14,7 @@ else
 		root_dir="$3"
 	fi
 	if [ -z "$4" ]; then
-		repo_names=(enyo lib/layout lib/moonstone lib/spotlight lib/enyo-webos lib/enyo-cordova lib/enyo-ilib lib/onyx lib/canvas lib/extra bootplate bootplate-moonstone sampler api-tool)
+		repo_names=(enyo lib/layout lib/moonstone lib/spotlight lib/enyo-webos lib/enyo-cordova lib/enyo-ilib lib/onyx lib/canvas lib/extra lib/mochi)
 	else
 		IFS=', ' read -a repo_names <<< $4
 	fi
@@ -22,7 +22,7 @@ else
 		printf "${bold}${i}${normal}\n"
 		path=$root_dir${i}
 		git -C $path checkout $2 && git -C $path pull
-		git -C $path tag -a $1 -m "$1" && git -C $path push origin $1
+		git -C $path tag -f -a $1 -m "Tagging $1" && git -C $path push origin $1
 		printf "\n"
 	done
 fi
