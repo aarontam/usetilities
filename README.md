@@ -12,8 +12,8 @@ Easily switch multiple repositories to the same tag or branch. You can specify a
 
 Git Brancher
 ============
-Easily create the same branch on multiple repositories, based off a specified base branch. You can specify a set of specific repositories, or use the default set that are Enyo-specific.
+Easily create the same branch on multiple repositories, based off a specified base branch. You can specify a set of specific repositories, or use the default set that are Enyo-specific. A "delete" option will soon be added to allow for a reversal of the branching action.
 
 Git Tagger
 ==========
-Easily create the same tag on multiple repositories, based off a specified branch/tag/hash. You can specify a set of specific repositories, or use the default set that are Enyo-specific.
+Easily create the same tag on multiple repositories, based off a specified branch/tag/hash. You can specify a set of specific repositories, or use the default set that are Enyo-specific. A "delete" option will soon be added to allow for a reversal of the branching action.
