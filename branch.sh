@@ -21,7 +21,7 @@ else
 	for i in ${repo_names[@]}; do
 		printf "${bold}${i}${normal}\n"
 		path=$root_dir${i}
-		git -C $path checkout $2 && git -C $path pull
+		git -C $path fetch --tags && git -C $path checkout $2 && git -C $path pull
 		git -C $path checkout -b $1 && git -C $path push origin -u $1:$1
 		printf "\n"
 	done
