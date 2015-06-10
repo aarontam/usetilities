@@ -14,7 +14,7 @@ else
 		root_dir="$3"
 	fi
 	if [ -z "$4" ]; then
-		repo_names=(enyo lib/layout lib/moonstone lib/spotlight lib/enyo-webos lib/enyo-cordova lib/enyo-ilib lib/onyx lib/canvas lib/extra lib/mochi)
+		repo_names=(enyo lib/layout lib/moonstone lib/spotlight lib/enyo-webos lib/enyo-cordova lib/enyo-ilib lib/onyx lib/canvas)
 	else
 		IFS=', ' read -a repo_names <<< $4
 	fi
