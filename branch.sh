@@ -21,8 +21,15 @@ else
 	for i in ${repo_names[@]}; do
 		printf "${bold}${i}${normal}\n"
 		path=$root_dir${i}
-		git -C $path branch -D $1
-		git -C $path fetch --tags && git -C $path checkout $2 && git -C $path pull
+		git -C $path checkout $2
+		# delete local branch if it already exists
+		if git -C $path rev-parse $1 >/dev/null 2>&1
+		then
+			printf "Deleting existing branch $1\n"
+			git -C $path branch -D $1
+		fi
+		git -C $path fetch --tags && git -C $path pull
+		printf "Pushing branch $1\n"
 		git -C $path checkout -b $1 && git -C $path push origin -u $1:$1
 		printf "\n"
 	done

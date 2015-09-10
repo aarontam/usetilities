@@ -21,8 +21,14 @@ else
 	for i in ${repo_names[@]}; do
 		printf "${bold}${i}${normal}\n"
 		path=$root_dir${i}
-		git -C $path tag -d $1
+		# delete local tag if it already exists
+		if git -C $path rev-parse $1 >/dev/null 2>&1
+		then
+			printf "Deleting existing tag $1\n"
+			git -C $path tag -d $1
+		fi
 		git -C $path fetch --tags && git -C $path checkout $2 && git -C $path pull
+		printf "Tagging $1\n"
 		git -C $path tag -f -a $1 -m "Tagging $1" && git -C $path push origin $1
 		printf "\n"
 	done
